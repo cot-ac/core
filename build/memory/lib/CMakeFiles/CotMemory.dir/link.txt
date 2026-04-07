@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCotMemory.a CMakeFiles/obj.CotMemory.dir/Types.cpp.o CMakeFiles/obj.CotMemory.dir/Ops.cpp.o CMakeFiles/obj.CotMemory.dir/Lowering.cpp.o CMakeFiles/obj.CotMemory.dir/MemoryConstruct.cpp.o
+/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libCotMemory.a

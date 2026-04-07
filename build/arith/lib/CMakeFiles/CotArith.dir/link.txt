@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCotArith.a CMakeFiles/obj.CotArith.dir/Ops.cpp.o CMakeFiles/obj.CotArith.dir/Lowering.cpp.o CMakeFiles/obj.CotArith.dir/Transform.cpp.o CMakeFiles/obj.CotArith.dir/ArithConstruct.cpp.o
+/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libCotArith.a
