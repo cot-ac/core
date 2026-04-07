@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCotSlices.a CMakeFiles/obj.CotSlices.dir/Types.cpp.o CMakeFiles/obj.CotSlices.dir/Ops.cpp.o CMakeFiles/obj.CotSlices.dir/Lowering.cpp.o CMakeFiles/obj.CotSlices.dir/SlicesConstruct.cpp.o
-/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libCotSlices.a

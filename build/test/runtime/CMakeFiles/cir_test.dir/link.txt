@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcir_test.a CMakeFiles/cir_test.dir/cir_test.c.o
-/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libcir_test.a

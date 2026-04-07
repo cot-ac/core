@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCotOptionals.a CMakeFiles/obj.CotOptionals.dir/Types.cpp.o CMakeFiles/obj.CotOptionals.dir/Ops.cpp.o CMakeFiles/obj.CotOptionals.dir/Lowering.cpp.o CMakeFiles/obj.CotOptionals.dir/OptionalsConstruct.cpp.o
-/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libCotOptionals.a

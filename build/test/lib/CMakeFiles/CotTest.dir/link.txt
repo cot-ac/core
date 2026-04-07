@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCotTest.a CMakeFiles/obj.CotTest.dir/Ops.cpp.o CMakeFiles/obj.CotTest.dir/Lowering.cpp.o CMakeFiles/obj.CotTest.dir/TestRunnerGenerator.cpp.o CMakeFiles/obj.CotTest.dir/TestConstruct.cpp.o
-/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libCotTest.a

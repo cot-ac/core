@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCotArrays.a CMakeFiles/obj.CotArrays.dir/Types.cpp.o CMakeFiles/obj.CotArrays.dir/Ops.cpp.o CMakeFiles/obj.CotArrays.dir/Lowering.cpp.o CMakeFiles/obj.CotArrays.dir/ArraysConstruct.cpp.o
-/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libCotArrays.a

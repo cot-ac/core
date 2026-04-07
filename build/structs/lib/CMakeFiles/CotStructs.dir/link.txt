@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCotStructs.a CMakeFiles/obj.CotStructs.dir/Types.cpp.o CMakeFiles/obj.CotStructs.dir/Ops.cpp.o CMakeFiles/obj.CotStructs.dir/Lowering.cpp.o CMakeFiles/obj.CotStructs.dir/StructsConstruct.cpp.o
-/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libCotStructs.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCotErrors.a CMakeFiles/obj.CotErrors.dir/Types.cpp.o CMakeFiles/obj.CotErrors.dir/Ops.cpp.o CMakeFiles/obj.CotErrors.dir/Lowering.cpp.o CMakeFiles/obj.CotErrors.dir/ErrorsConstruct.cpp.o
-/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libCotErrors.a

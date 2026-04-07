@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCotFlow.a CMakeFiles/obj.CotFlow.dir/Ops.cpp.o CMakeFiles/obj.CotFlow.dir/Lowering.cpp.o CMakeFiles/obj.CotFlow.dir/FlowConstruct.cpp.o
-/opt/homebrew/opt/llvm@20/bin/llvm-ranlib libCotFlow.a
