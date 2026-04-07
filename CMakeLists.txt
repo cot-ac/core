@@ -39,7 +39,7 @@ set_target_properties(COTConstruct PROPERTIES
   IMPORTED_LOCATION "${COT_BUILD_DIR}/lib/Construct/libCOTConstruct.a")
 
 # Add include paths for all constructs (source + generated)
-set(CORE_CONSTRUCTS arith memory flow structs arrays slices optionals errors test enums unions generics)
+set(CORE_CONSTRUCTS arith memory flow structs arrays slices optionals errors test enums unions generics traits)
 foreach(construct ${CORE_CONSTRUCTS})
   include_directories(${PROJECT_SOURCE_DIR}/${construct}/include)
   include_directories(${PROJECT_BINARY_DIR}/${construct}/include)
@@ -58,3 +58,4 @@ add_subdirectory(test)
 add_subdirectory(enums)
 add_subdirectory(unions)
 add_subdirectory(generics)
+add_subdirectory(traits)
