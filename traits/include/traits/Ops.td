@@ -76,12 +76,16 @@ def CIR_WitnessMethodOp : CIR_Op<"witness_method", [Pure]> {
     Witness Table pointer at runtime. Used for dynamic dispatch through
     existential containers.
 
+    method_index specifies the slot in the PWT array. If not provided,
+    a resolution pass must set it before lowering.
+
     Example:
-      %fn = cir.witness_method %pwt, "sum" : (!cir.ptr) -> !cir.ptr
+      %fn = cir.witness_method %pwt, "sum"[0] : (!cir.ptr) -> !cir.ptr
   }];
   let arguments = (ins
     AnyType:$pwt,
-    StrAttr:$method
+    StrAttr:$method,
+    OptionalAttr<I64Attr>:$method_index
   );
   let results = (outs AnyType:$result);
   let hasCustomAssemblyFormat = 1;

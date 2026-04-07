@@ -170,6 +170,15 @@ ParseResult cir::WitnessMethodOp::parse(OpAsmParser &parser,
   result.addAttribute("method",
                        StringAttr::get(parser.getContext(), methodName));
 
+  // Optional: [index]
+  if (succeeded(parser.parseOptionalLSquare())) {
+    int64_t idx;
+    if (parser.parseInteger(idx) || parser.parseRSquare())
+      return failure();
+    result.addAttribute("method_index",
+                         parser.getBuilder().getI64IntegerAttr(idx));
+  }
+
   if (parser.parseColon() || parser.parseLParen() ||
       parser.parseType(pwtType) || parser.parseRParen() ||
       parser.parseArrow() || parser.parseType(resultType))
@@ -182,7 +191,10 @@ ParseResult cir::WitnessMethodOp::parse(OpAsmParser &parser,
 }
 
 void cir::WitnessMethodOp::print(OpAsmPrinter &printer) {
-  printer << " " << getPwt() << ", \"" << getMethod() << "\" : (";
+  printer << " " << getPwt() << ", \"" << getMethod() << "\"";
+  if (auto idx = getMethodIndex())
+    printer << "[" << *idx << "]";
+  printer << " : (";
   printer.printType(getPwt().getType());
   printer << ") -> ";
   printer.printType(getResult().getType());
