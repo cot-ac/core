@@ -1,20 +1,17 @@
-//! # Existential Types
+//! Existential type: `!cir.existential<"P">`.
 //!
-//! Defines the CIR existential type:
-//!
-//! `!cir.existential<"P">` — an existential container for a value that
-//! conforms to protocol/trait "P". At runtime, represented as a pair of
-//! `(value_ptr, witness_table_ptr)`. The witness table contains function
-//! pointers for each method required by the protocol.
+//! An existential container for a value conforming to protocol "P".
+//! At runtime: 24-byte inline buffer + VWT ptr + PWT ptr.
+//! Reference: Swift SIL existential container.
 
-use mlif::Context;
+use mlif::{Context, ExtensionType, TypeId};
 
-/// Existential type: `!cir.existential<"P">`.
-pub struct ExistentialType {
-    // TODO: protocol name
+/// Create `!cir.existential<"P">` for the named protocol.
+pub fn existential_type(ctx: &mut Context, protocol: &str) -> TypeId {
+    ctx.extension_type(
+        ExtensionType::new("cir", "existential").with_string_params(vec![protocol.to_string()]),
+    )
 }
 
-/// Register `!cir.existential` with the type system.
-pub fn register_types(_ctx: &mut Context) {
-    todo!()
-}
+/// No upfront registration needed — types are interned on demand.
+pub fn register_types(_ctx: &mut Context) {}

@@ -6,10 +6,7 @@
 //! - `load` -> Cranelift `load` instruction
 //! - `addr_of` -> `stack_addr` for the corresponding slot
 //! - `deref` -> `load` with type derived from `!cir.ref<T>`
+//!
+//! Phase 3 -- not yet implemented.
 
-use mlif::Context;
-
-/// Lower all memory ops in a module to Cranelift IR.
-pub fn lower_memory(_ctx: &mut Context) {
-    todo!()
-}
+// Lowering will be implemented in Phase 3 when we add the Cranelift backend.

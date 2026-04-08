@@ -1,14 +1,14 @@
-//! # Trait Transforms
+//! WitnessThunkGenerator — stub for Phase 3.
 //!
-//! Contains the WitnessThunkGenerator pass. This pass generates thunk
-//! functions for each protocol method that bridge between the generic
-//! witness-table calling convention and the concrete type's method signature.
-//! Thunks handle the `self` parameter cast from opaque pointer to concrete
-//! type pointer.
+//! Generates thunk functions that bridge between witness-table calling
+//! convention and concrete method signatures. The thunk casts the opaque
+//! self pointer back to the concrete type.
+//!
+//! This is a lowering-level concern, not a sema step. Full implementation
+//! deferred to Phase 3 (Cranelift lowering).
 
 use mlif::Context;
 
-/// Run the WitnessThunkGenerator pass: create thunks for witness table entries.
 pub fn witness_thunk_generator(_ctx: &mut Context) {
     todo!()
 }

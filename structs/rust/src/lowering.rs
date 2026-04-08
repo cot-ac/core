@@ -6,10 +6,7 @@
 //! - `field_ptr` -> `stack_addr` + offset computation (iadd_imm)
 //!
 //! Field offsets are computed from the target data layout, respecting alignment.
+//!
+//! Phase 3 -- not yet implemented.
 
-use mlif::Context;
-
-/// Lower all struct ops in a module to Cranelift IR.
-pub fn lower_structs(_ctx: &mut Context) {
-    todo!()
-}
+// Lowering will be implemented in Phase 3 when we add the Cranelift backend.

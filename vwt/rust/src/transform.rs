@@ -1,18 +1,13 @@
-//! # VWT Transforms
+//! WitnessTableGenerator — stub for Phase 3.
 //!
-//! Contains the WitnessTableGenerator pass. This pass generates the value
-//! witness table global data for each concrete type in the module. Each VWT
-//! contains:
-//! - size, stride, alignment constants
-//! - function pointers for copy, destroy, move, initializeBufferWithCopyOfBuffer
+//! Generates VWT globals for each concrete type in the module.
+//! Each VWT contains size, stride, alignment, and function pointers
+//! for copy, destroy, move, initializeBufferWithCopyOfBuffer.
 //!
-//! For trivial types (POD), the copy/move entries are memcpy and destroy is a no-op.
-//! For types with custom destructors or copy semantics, the pass generates
-//! appropriate wrapper functions.
+//! Full implementation deferred to Phase 3 (Cranelift lowering).
 
 use mlif::Context;
 
-/// Run the WitnessTableGenerator pass: emit VWT globals for all concrete types.
 pub fn witness_table_generator(_ctx: &mut Context) {
     todo!()
 }

@@ -1,19 +1,15 @@
-//! # Optional Types
+//! Optional type: `!cir.optional<T>`.
 //!
-//! Defines the CIR optional type:
-//!
-//! `!cir.optional<T>` — a value that is either a valid `T` or null/none.
-//! For pointer-like T, uses null-pointer optimization (no extra storage).
-//! For value types, represented as a tagged struct: `{ has_value: i1, payload: T }`.
+//! A nullable wrapper. Pointer-like payloads use null-pointer optimization
+//! (the pointer IS the optional). Value payloads lower to struct<(T, i1)>.
+//! Reference: Zig `?T`, Swift `Optional<T>`.
 
-use mlif::Context;
+use mlif::{Context, ExtensionType, TypeId};
 
-/// Optional type: `!cir.optional<T>`.
-pub struct OptionalType {
-    // TODO: payload type
+/// Create `!cir.optional<T>` with the given payload type.
+pub fn optional_type(ctx: &mut Context, payload: TypeId) -> TypeId {
+    ctx.extension_type(ExtensionType::new("cir", "optional").with_type_params(vec![payload]))
 }
 
-/// Register `!cir.optional` with the type system.
-pub fn register_types(_ctx: &mut Context) {
-    todo!()
-}
+/// No upfront registration needed — types are interned on demand.
+pub fn register_types(_ctx: &mut Context) {}

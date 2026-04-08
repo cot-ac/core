@@ -1,20 +1,18 @@
-//! # Generic Types
+//! Type parameter: `!cir.type_param<"T">`.
 //!
-//! Defines the CIR type parameter placeholder:
-//!
-//! `!cir.type_param<"T">` — a placeholder type that stands for a concrete type
-//! to be filled in during monomorphization. Only valid in generic function
-//! signatures and bodies; must be eliminated by the GenericSpecializer pass
-//! before lowering.
+//! A placeholder type in generic function signatures and bodies.
+//! Eliminated by GenericSpecializerStep before lowering.
+//! Falls back to ptr if it reaches lowering unresolved.
+//! Reference: Swift SIL archetype, Rust type parameter.
 
-use mlif::Context;
+use mlif::{Context, ExtensionType, TypeId};
 
-/// Type parameter placeholder: `!cir.type_param<"T">`.
-pub struct TypeParamType {
-    // TODO: parameter name
+/// Create `!cir.type_param<"T">` with the given parameter name.
+pub fn type_param_type(ctx: &mut Context, name: &str) -> TypeId {
+    ctx.extension_type(
+        ExtensionType::new("cir", "type_param").with_string_params(vec![name.to_string()]),
+    )
 }
 
-/// Register `!cir.type_param` with the type system.
-pub fn register_types(_ctx: &mut Context) {
-    todo!()
-}
+/// No upfront registration needed — types are interned on demand.
+pub fn register_types(_ctx: &mut Context) {}

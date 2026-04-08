@@ -4,10 +4,7 @@
 //! - `array_init` -> `stack_slot` + sequence of `store` at element offsets
 //! - `elem_val` -> `load` at index * sizeof(T) from array base
 //! - `elem_ptr` -> `stack_addr` + index * sizeof(T) computation (imul + iadd)
+//!
+//! Phase 3 -- not yet implemented.
 
-use mlif::Context;
-
-/// Lower all array ops in a module to Cranelift IR.
-pub fn lower_arrays(_ctx: &mut Context) {
-    todo!()
-}
+// Lowering will be implemented in Phase 3 when we add the Cranelift backend.

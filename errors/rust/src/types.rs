@@ -1,19 +1,15 @@
-//! # Error Union Types
+//! Error union type: `!cir.error_union<T>`.
 //!
-//! Defines the CIR error union type:
-//!
-//! `!cir.error_union<T>` — a tagged union of a success payload `T` or an i16
-//! error code. Represented at runtime as a struct:
-//! `{ payload: T, error_code: i16 }` where error_code == 0 means success.
+//! A tagged union of success payload `T` or i16 error code.
+//! Lowers to struct<(T, i16)> where error_code == 0 means success.
+//! Reference: Zig error unions, Rust `Result<T, E>`.
 
-use mlif::Context;
+use mlif::{Context, ExtensionType, TypeId};
 
-/// Error union type: `!cir.error_union<T>`.
-pub struct ErrorUnionType {
-    // TODO: payload type
+/// Create `!cir.error_union<T>` with the given payload type.
+pub fn error_union_type(ctx: &mut Context, payload: TypeId) -> TypeId {
+    ctx.extension_type(ExtensionType::new("cir", "error_union").with_type_params(vec![payload]))
 }
 
-/// Register `!cir.error_union` with the type system.
-pub fn register_types(_ctx: &mut Context) {
-    todo!()
-}
+/// No upfront registration needed — types are interned on demand.
+pub fn register_types(_ctx: &mut Context) {}

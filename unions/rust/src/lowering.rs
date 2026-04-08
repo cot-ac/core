@@ -1,13 +1,12 @@
-//! # Unions Lowering
+//! Cranelift lowering for union ops (Phase 3).
 //!
-//! Lowers CIR union ops to Cranelift IR using `{ tag: i32, payload: [N x i8] }`:
-//! - `union_init` -> `stack_slot` sized to tag + max payload, store tag + payload bytes
-//! - `union_tag` -> `load` the i32 tag from offset 0
-//! - `union_payload` -> `load` from payload offset, reinterpreted as the variant type
+//! Layout: stack_slot with struct<(i8 tag, [max_payload_bytes x i8])>.
+//! union_init → store tag + bitcast payload into byte array.
+//! union_tag → load i8 from offset 0.
+//! union_payload → load from payload offset, bitcast to variant type.
 
 use mlif::Context;
 
-/// Lower all union ops in a module to Cranelift IR.
 pub fn lower_unions(_ctx: &mut Context) {
     todo!()
 }

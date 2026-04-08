@@ -6,10 +6,7 @@
 //! - `slice_len` -> extract second element of the pair
 //! - `slice_elem` -> ptr + index * sizeof(T), then `load`
 //! - `array_to_slice` -> `stack_addr` for ptr, `iconst N` for len
+//!
+//! Phase 3 -- not yet implemented.
 
-use mlif::Context;
-
-/// Lower all slice ops in a module to Cranelift IR.
-pub fn lower_slices(_ctx: &mut Context) {
-    todo!()
-}
+// Lowering will be implemented in Phase 3 when we add the Cranelift backend.

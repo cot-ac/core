@@ -1,16 +1,14 @@
-//! # Traits Lowering
+//! Cranelift lowering for trait ops (Phase 3).
 //!
-//! Lowers CIR trait ops to Cranelift IR using indirect calls:
-//! - `witness_table` -> global data section with function pointer array
-//! - `trait_call` -> load witness table ptr, GEP to method slot, `call_indirect`
-//! - `witness_method` -> load function pointer from witness table at method index
-//! - `init_existential` -> construct `{ value_ptr, witness_table_ptr }` pair
-//! - `open_existential` -> extract value_ptr from the pair
-//! - `deinit_existential` -> load destroy method from witness table, `call_indirect`
+//! witness_table → global data with function pointer array.
+//! trait_call → resolved by GenericSpecializerStep to direct func.call.
+//! witness_method → load fn ptr from PWT at method_index.
+//! init_existential → store value + VWT + PWT into container.
+//! open_existential → extract buffer, VWT, PWT pointers.
+//! deinit_existential → null out metadata slots.
 
 use mlif::Context;
 
-/// Lower all trait ops in a module to Cranelift IR.
 pub fn lower_traits(_ctx: &mut Context) {
     todo!()
 }

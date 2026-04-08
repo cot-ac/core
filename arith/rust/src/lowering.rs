@@ -16,10 +16,7 @@
 //! - Integer casts -> `sextend`, `uextend`, `ireduce`
 //! - Float casts -> `fcvt_to_sint`, `fcvt_from_sint`, `fpromote`, `fdemote`
 //! - Constants -> `iconst`, `f32const`, `f64const`
+//!
+//! Phase 3 — not yet implemented.
 
-use mlif::Context;
-
-/// Lower all arith ops in a module to Cranelift IR.
-pub fn lower_arith(_ctx: &mut Context) {
-    todo!()
-}
+// Lowering will be implemented in Phase 3 when we add the Cranelift backend.
