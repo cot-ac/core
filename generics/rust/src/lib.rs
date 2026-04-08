@@ -10,6 +10,6 @@ pub mod ops;
 pub mod transform;
 
 /// Register the generics construct's types and operations.
-pub fn register(_ctx: &mut mlif::Context) {
+pub fn register(_ctx: &mut mlif::Context, _sema: &mut mlif::CIRSema) {
     todo!()
 }
