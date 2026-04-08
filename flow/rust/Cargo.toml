@@ -4,5 +4,14 @@ version = "0.1.0"
 edition = "2021"
 description = "CIR flow construct: branch, conditional branch, switch, and trap terminators."
 
+[features]
+default = []
+codegen = ["mlif/codegen", "dep:cranelift-codegen", "dep:cranelift-frontend"]
+
 [dependencies]
 mlif = { workspace = true }
+cranelift-codegen = { workspace = true, optional = true }
+cranelift-frontend = { workspace = true, optional = true }
+
+[dev-dependencies]
+cot-arith = { path = "../../arith/rust", features = ["codegen"] }

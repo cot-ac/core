@@ -4,5 +4,13 @@ version = "0.1.0"
 edition = "2021"
 description = "CIR slices construct: fat-pointer slice type with string constants and element access."
 
+[features]
+default = []
+codegen = ["mlif/codegen", "dep:cranelift-codegen", "dep:cranelift-frontend", "dep:cranelift-module", "dep:cranelift-object"]
+
 [dependencies]
 mlif = { workspace = true }
+cranelift-codegen = { workspace = true, optional = true }
+cranelift-frontend = { workspace = true, optional = true }
+cranelift-module = { workspace = true, optional = true }
+cranelift-object = { workspace = true, optional = true }

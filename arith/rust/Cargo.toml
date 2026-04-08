@@ -4,5 +4,11 @@ version = "0.1.0"
 edition = "2021"
 description = "CIR arithmetic construct: 29 ops for integer/float arithmetic, comparisons, casts, and bitwise operations."
 
+[features]
+default = []
+codegen = ["mlif/codegen", "dep:cranelift-codegen", "dep:cranelift-frontend"]
+
 [dependencies]
 mlif = { workspace = true }
+cranelift-codegen = { workspace = true, optional = true }
+cranelift-frontend = { workspace = true, optional = true }
