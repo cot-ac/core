@@ -1,2 +1,2 @@
-4.489517e-02 lit/arrays.mlir
-3.407502e-02 lit/lowering/arrays_to_llvm.mlir
+1.157479e-01 lit/arrays.mlir
+1.220219e-01 lit/lowering/arrays_to_llvm.mlir

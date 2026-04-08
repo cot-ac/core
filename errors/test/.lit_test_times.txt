@@ -1,2 +1,2 @@
-4.998207e-02 lit/errors.mlir
-4.469609e-02 lit/lowering/errors_to_llvm.mlir
+1.211660e-01 lit/errors.mlir
+4.199409e-02 lit/lowering/errors_to_llvm.mlir

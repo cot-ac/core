@@ -1,8 +1,8 @@
-2.906492e+00 lit/arithmetic.mlir
-2.563232e+00 lit/bitwise.mlir
-2.256204e+00 lit/casts.mlir
-1.919308e+00 lit/comparison.mlir
-1.598613e+00 lit/constant.mlir
-1.268453e+00 lit/lowering/arithmetic_to_llvm.mlir
-9.280448e-01 lit/lowering/bitwise_to_llvm.mlir
-6.024523e-01 lit/lowering/casts_to_llvm.mlir
+6.844378e-02 lit/arithmetic.mlir
+2.779007e-02 lit/bitwise.mlir
+3.132892e-02 lit/casts.mlir
+4.788184e-02 lit/comparison.mlir
+7.614017e-02 lit/constant.mlir
+4.044271e-02 lit/lowering/arithmetic_to_llvm.mlir
+2.909684e-02 lit/lowering/bitwise_to_llvm.mlir
+3.181481e-02 lit/lowering/casts_to_llvm.mlir

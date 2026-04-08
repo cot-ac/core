@@ -1,2 +1,2 @@
-4.056430e-02 lit/lowering/structs_to_llvm.mlir
-4.181981e-02 lit/structs.mlir
+3.316903e-02 lit/lowering/structs_to_llvm.mlir
+5.203032e-02 lit/structs.mlir

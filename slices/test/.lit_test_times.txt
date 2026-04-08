@@ -1,2 +1,2 @@
-3.528214e-02 lit/lowering/slices_to_llvm.mlir
-3.974605e-02 lit/slices.mlir
+4.378223e-02 lit/lowering/slices_to_llvm.mlir
+6.638002e-02 lit/slices.mlir
