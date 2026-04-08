@@ -3,6 +3,7 @@
 #define FLOW_OPS_H
 
 #include "cot/CIR/CIRDialect.h"
+#include "cot/CIR/CIROpInterfaces.h"
 
 #include "mlir/IR/BuiltinOps.h"
 #include "mlir/IR/OpDefinition.h"

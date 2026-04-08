@@ -9,6 +9,7 @@
 #define FLOW_OPS
 
 include "cot/CIR/CIROps.td"
+include "cot/CIR/CIROpInterfaces.td"
 
 //===----------------------------------------------------------------------===//
 // Unconditional Branch
@@ -39,6 +40,7 @@ def CIR_CondBrOp : CIR_Op<"condbr", [
     Terminator,
     AttrSizedOperandSegments,
     DeclareOpInterfaceMethods<BranchOpInterface>,
+    DeclareOpInterfaceMethods<CIR_ComptimeEvaluable, ["comptimeEval", "hasComptimeSideEffects"]>,
     Pure
   ]> {
   let summary = "conditional branch on i1 condition";

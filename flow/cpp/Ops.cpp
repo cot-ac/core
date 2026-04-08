@@ -1,5 +1,6 @@
 //===- Ops.cpp - cot-flow op implementations -----------------*- C++ -*-===//
 #include "flow/Ops.h"
+#include "cot/CIR/CIROpInterfaces.h"
 
 #include "mlir/IR/Builders.h"
 #include "mlir/IR/OpImplementation.h"
@@ -24,6 +25,31 @@ SuccessorOperands cir::CondBrOp::getSuccessorOperands(unsigned index) {
   if (index == 0)
     return SuccessorOperands(getTrueDestOperandsMutable());
   return SuccessorOperands(getFalseDestOperandsMutable());
+}
+
+// ComptimeEvaluable: condbr with known condition → replace with br.
+bool cir::CondBrOp::hasComptimeSideEffects() {
+  return true; // branch elimination is a comptime side effect
+}
+
+Attribute cir::CondBrOp::comptimeEval(ArrayRef<Attribute> operands) {
+  if (operands.empty()) return nullptr;
+  auto condAttr = dyn_cast_or_null<BoolAttr>(operands[0]);
+  if (!condAttr) {
+    // Try integer (i1) — fold may produce IntegerAttr for bools
+    if (auto intAttr = dyn_cast_or_null<IntegerAttr>(operands[0]))
+      condAttr = BoolAttr::get(getContext(), intAttr.getInt() != 0);
+  }
+  if (!condAttr) return nullptr;
+
+  // Replace condbr with br to the taken destination
+  OpBuilder builder(*this);
+  Block *dest = condAttr.getValue() ? getTrueDest() : getFalseDest();
+  auto brArgs = condAttr.getValue() ? getTrueDestOperands()
+                                      : getFalseDestOperands();
+  builder.create<cir::BrOp>(getLoc(), brArgs, dest);
+  erase();
+  return builder.getBoolAttr(condAttr.getValue()); // return non-null = handled
 }
 
 //===----------------------------------------------------------------------===//

@@ -76,27 +76,39 @@ private:
       return false;
 
     // Process each fold result
-    bool allResolved = true;
+    bool canErase = true;
     for (unsigned i = 0; i < op->getNumResults(); i++) {
       if (auto attr = llvm::dyn_cast_if_present<Attribute>(foldResults[i])) {
-        // Fold produced a constant — track it
+        // Fold produced a constant attribute — materialize as cir.constant
         sema.comptimeValues[op->getResult(i)] = attr;
+        auto *dialect = sema.ctx->getLoadedDialect("cir");
+        if (dialect) {
+          OpBuilder builder(op);
+          auto *constOp = dialect->materializeConstant(
+              builder, attr, op->getResult(i).getType(), op->getLoc());
+          if (constOp) {
+            sema.comptimeValues[constOp->getResult(0)] = attr;
+            op->getResult(i).replaceAllUsesWith(constOp->getResult(0));
+            continue;
+          }
+        }
+        canErase = false; // couldn't materialize — keep tracking
       } else if (auto val = llvm::dyn_cast_if_present<Value>(foldResults[i])) {
-        // Fold produced an existing value — propagate comptime status
+        // Fold produced an existing value — propagate and replace
         auto it = sema.comptimeValues.find(val);
         if (it != sema.comptimeValues.end())
           sema.comptimeValues[op->getResult(i)] = it->second;
         op->getResult(i).replaceAllUsesWith(val);
       } else {
-        allResolved = false;
+        canErase = false;
       }
     }
 
-    // If all results are constant Attributes, we can try to materialize
-    // and erase. But materialization requires dialect support (cir.constant).
-    // For now, just track the values — downstream steps see them as known.
-    // Full materialization happens when we implement dialect materializeConstant.
-    return false; // don't erase — tracking is sufficient for comptime propagation
+    if (canErase) {
+      op->erase();
+      return true;
+    }
+    return false;
   }
 
   /// Query ComptimeEvaluable interface for ops that need special handling.
