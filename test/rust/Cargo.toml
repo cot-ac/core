@@ -1,0 +1,8 @@
+[package]
+name = "cot-test"
+version = "0.1.0"
+edition = "2021"
+description = "CIR test construct: assert and test_case ops with test runner generation."
+
+[dependencies]
+mlif = { workspace = true }

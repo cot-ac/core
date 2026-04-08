@@ -1,0 +1,8 @@
+[package]
+name = "cot-generics"
+version = "0.1.0"
+edition = "2021"
+description = "CIR generics construct: type parameters, generic application, and monomorphization."
+
+[dependencies]
+mlif = { workspace = true }

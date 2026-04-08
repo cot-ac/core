@@ -1,2 +1,2 @@
 add_subdirectory(include/generics)
-add_subdirectory(lib)
+add_subdirectory(cpp)

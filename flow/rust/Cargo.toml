@@ -1,0 +1,8 @@
+[package]
+name = "cot-flow"
+version = "0.1.0"
+edition = "2021"
+description = "CIR flow construct: branch, conditional branch, switch, and trap terminators."
+
+[dependencies]
+mlif = { workspace = true }

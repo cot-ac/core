@@ -1,0 +1,8 @@
+[package]
+name = "cot-memory"
+version = "0.1.0"
+edition = "2021"
+description = "CIR memory construct: pointer and reference types, stack allocation, load/store ops."
+
+[dependencies]
+mlif = { workspace = true }

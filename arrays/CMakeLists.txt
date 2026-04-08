@@ -1,3 +1,3 @@
 add_subdirectory(include/arrays)
-add_subdirectory(lib)
+add_subdirectory(cpp)
 add_subdirectory(test)

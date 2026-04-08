@@ -1,0 +1,8 @@
+[package]
+name = "cot-arith"
+version = "0.1.0"
+edition = "2021"
+description = "CIR arithmetic construct: 29 ops for integer/float arithmetic, comparisons, casts, and bitwise operations."
+
+[dependencies]
+mlif = { workspace = true }

@@ -1,3 +1,3 @@
 add_subdirectory(include/arith)
-add_subdirectory(lib)
+add_subdirectory(cpp)
 add_subdirectory(test)

@@ -1,0 +1,8 @@
+[package]
+name = "cot-unions"
+version = "0.1.0"
+edition = "2021"
+description = "CIR unions construct: tagged union type with variant initialization and payload access."
+
+[dependencies]
+mlif = { workspace = true }

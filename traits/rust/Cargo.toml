@@ -1,0 +1,8 @@
+[package]
+name = "cot-traits"
+version = "0.1.0"
+edition = "2021"
+description = "CIR traits construct: existential types, witness tables, and trait dispatch."
+
+[dependencies]
+mlif = { workspace = true }

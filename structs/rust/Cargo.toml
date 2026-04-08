@@ -1,0 +1,8 @@
+[package]
+name = "cot-structs"
+version = "0.1.0"
+edition = "2021"
+description = "CIR structs construct: named struct types with field access and initialization."
+
+[dependencies]
+mlif = { workspace = true }

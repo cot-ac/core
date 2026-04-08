@@ -1,3 +1,3 @@
 add_subdirectory(include/enums)
-add_subdirectory(lib)
+add_subdirectory(cpp)
 add_subdirectory(test)

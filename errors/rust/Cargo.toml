@@ -1,0 +1,8 @@
+[package]
+name = "cot-errors"
+version = "0.1.0"
+edition = "2021"
+description = "CIR errors construct: error union type for result/error pattern with i16 error codes."
+
+[dependencies]
+mlif = { workspace = true }

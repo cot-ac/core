@@ -1,0 +1,8 @@
+[package]
+name = "cot-arrays"
+version = "0.1.0"
+edition = "2021"
+description = "CIR arrays construct: fixed-size array type with element access ops."
+
+[dependencies]
+mlif = { workspace = true }

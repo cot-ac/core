@@ -1,0 +1,8 @@
+[package]
+name = "cot-vwt"
+version = "0.1.0"
+edition = "2021"
+description = "CIR value witness table construct: type metadata ops for size, stride, alignment, and lifetime."
+
+[dependencies]
+mlif = { workspace = true }

@@ -1,0 +1,8 @@
+[package]
+name = "cot-slices"
+version = "0.1.0"
+edition = "2021"
+description = "CIR slices construct: fat-pointer slice type with string constants and element access."
+
+[dependencies]
+mlif = { workspace = true }

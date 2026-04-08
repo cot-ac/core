@@ -1,0 +1,8 @@
+[package]
+name = "cot-enums"
+version = "0.1.0"
+edition = "2021"
+description = "CIR enums construct: named enumeration type with integer-backed variants."
+
+[dependencies]
+mlif = { workspace = true }

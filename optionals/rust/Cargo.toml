@@ -1,0 +1,8 @@
+[package]
+name = "cot-optionals"
+version = "0.1.0"
+edition = "2021"
+description = "CIR optionals construct: nullable value type with null-pointer optimization."
+
+[dependencies]
+mlif = { workspace = true }
